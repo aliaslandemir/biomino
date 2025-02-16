@@ -33,7 +33,6 @@ def main():
     properties = {
         "name": "Center of Norway",
         "species": "N/A",
-        "image_url": "https://example.com/center_image.jpg",
         "info_link": "https://example.com/info",
         "color": "black"
     }
@@ -45,7 +44,7 @@ def main():
     base_map = build_base_map(
         location=(60.4720, 8.4689),
         zoom_start=5,
-        tile_provider="openstreetmap",  # Try "google" or "stamen_terrain" if needed.
+        tile_provider="google",  # Try "google" or "stamen_terrain" if needed.
         add_measure_control=True,
         add_fullscreen_control=True
     )
