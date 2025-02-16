@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9ab77bf96ad06a9e9f11deb38eb9a56e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9ab77bf96ad06a9e9f11deb38eb9a56e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9ab77bf96ad06a9e9f11deb38eb9a56e = L.map(
+                "map_9ab77bf96ad06a9e9f11deb38eb9a56e",
+                {
+                    center: [60.472, 8.4689],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e5a2200ed66ec03bbaff7189653793d4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e5a2200ed66ec03bbaff7189653793d4.addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var measure_control_33a6a4ec70524f22f661930b74a02193 = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "hectares",
+});
+            map_9ab77bf96ad06a9e9f11deb38eb9a56e.addControl(measure_control_33a6a4ec70524f22f661930b74a02193);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var layer_control_157382d51506988aeba5310e9c9edd45_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_e5a2200ed66ec03bbaff7189653793d4,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_157382d51506988aeba5310e9c9edd45 = L.control.layers(
+                layer_control_157382d51506988aeba5310e9c9edd45_layers.base_layers,
+                layer_control_157382d51506988aeba5310e9c9edd45_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+
+        
+    
+            var marker_2b0f04ba182db52c92253b32333cbaa9 = L.marker(
+                [59.919, 10.752],
+                {
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var icon_55aec24e53a459457e458816efa4899a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_2b0f04ba182db52c92253b32333cbaa9.setIcon(icon_55aec24e53a459457e458816efa4899a);
+        
+    
+        var popup_35ec7e5ccd09b2367e22e8c9f7a49ed8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31aac0517b54f33a0de741fccf8c3ac4 = $(`<div id="html_31aac0517b54f33a0de741fccf8c3ac4" style="width: 100.0%; height: 100.0%;">         <div style="font-size:14px;">             <strong>Oslo Fjord</strong><br>             <em>Species:</em> Blue Mussel (Mytilus edulis)<br><br>             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mytilus_edulis.JPG" alt="" width="250"                  onerror="this.style.display='none'"/><br><br>             <a href="https://en.wikipedia.org/wiki/Mytilus_edulis" target="_blank">More Info</a>         </div>         </div>`)[0];
+                popup_35ec7e5ccd09b2367e22e8c9f7a49ed8.setContent(html_31aac0517b54f33a0de741fccf8c3ac4);
+            
+        
+
+        marker_2b0f04ba182db52c92253b32333cbaa9.bindPopup(popup_35ec7e5ccd09b2367e22e8c9f7a49ed8)
+        ;
+
+        
+    
+    
+            marker_2b0f04ba182db52c92253b32333cbaa9.bindTooltip(
+                `<div>
+                     Oslo Fjord - Click for details
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d53b14b1e508c74d6cd72b496ab5651c = L.marker(
+                [60.399, 5.324],
+                {
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var icon_13aa285a5c5912126d11443e0b511ce1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_d53b14b1e508c74d6cd72b496ab5651c.setIcon(icon_13aa285a5c5912126d11443e0b511ce1);
+        
+    
+        var popup_2fa554cbe3ea16e685662e5cf516426d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f7786e47ea2be59c7e2aa06e30af6c84 = $(`<div id="html_f7786e47ea2be59c7e2aa06e30af6c84" style="width: 100.0%; height: 100.0%;">         <div style="font-size:14px;">             <strong>Bergen Coastal</strong><br>             <em>Species:</em> Pacific Oyster (Crassostrea gigas)<br><br>             <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Oysters_in_shell.jpg" alt="" width="250"                  onerror="this.style.display='none'"/><br><br>             <a href="https://en.wikipedia.org/wiki/Crassostrea_gigas" target="_blank">More Info</a>         </div>         </div>`)[0];
+                popup_2fa554cbe3ea16e685662e5cf516426d.setContent(html_f7786e47ea2be59c7e2aa06e30af6c84);
+            
+        
+
+        marker_d53b14b1e508c74d6cd72b496ab5651c.bindPopup(popup_2fa554cbe3ea16e685662e5cf516426d)
+        ;
+
+        
+    
+    
+            marker_d53b14b1e508c74d6cd72b496ab5651c.bindTooltip(
+                `<div>
+                     Bergen Coastal - Click for details
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1ed34bd9676fe258b067d77dfdb94226 = L.marker(
+                [69.642, 18.953],
+                {
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var icon_980b4638b2266c76002a177927fbe738 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_1ed34bd9676fe258b067d77dfdb94226.setIcon(icon_980b4638b2266c76002a177927fbe738);
+        
+    
+        var popup_21256886c504f7f5577a3934a2bf3f56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fddbac9b2564ba3d8c4e4e5f433401f6 = $(`<div id="html_fddbac9b2564ba3d8c4e4e5f433401f6" style="width: 100.0%; height: 100.0%;">         <div style="font-size:14px;">             <strong>Tromsø</strong><br>             <em>Species:</em> Acorn Barnacle (Balanus improvisus)<br><br>             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Acorn_barnacle.jpg" alt="" width="250"                  onerror="this.style.display='none'"/><br><br>             <a href="https://en.wikipedia.org/wiki/Barnacle" target="_blank">More Info</a>         </div>         </div>`)[0];
+                popup_21256886c504f7f5577a3934a2bf3f56.setContent(html_fddbac9b2564ba3d8c4e4e5f433401f6);
+            
+        
+
+        marker_1ed34bd9676fe258b067d77dfdb94226.bindPopup(popup_21256886c504f7f5577a3934a2bf3f56)
+        ;
+
+        
+    
+    
+            marker_1ed34bd9676fe258b067d77dfdb94226.bindTooltip(
+                `<div>
+                     Tromsø - Click for details
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2d8c5f02d9d5df30d487cbd93c4ae556 = L.marker(
+                [58.969, 5.731],
+                {
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var icon_4b72ca343a88d3a575c3a3ccc23f690b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_2d8c5f02d9d5df30d487cbd93c4ae556.setIcon(icon_4b72ca343a88d3a575c3a3ccc23f690b);
+        
+    
+        var popup_991de1852f53d42607da71eb7905157f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9def0e04822f1bb37763ad34ebd8052b = $(`<div id="html_9def0e04822f1bb37763ad34ebd8052b" style="width: 100.0%; height: 100.0%;">         <div style="font-size:14px;">             <strong>Stavanger Coastal</strong><br>             <em>Species:</em> Common Cockle (Cerastoderma edule)<br><br>             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Cerastoderma_edule.jpg" alt="" width="250"                  onerror="this.style.display='none'"/><br><br>             <a href="https://en.wikipedia.org/wiki/Cerastoderma_edule" target="_blank">More Info</a>         </div>         </div>`)[0];
+                popup_991de1852f53d42607da71eb7905157f.setContent(html_9def0e04822f1bb37763ad34ebd8052b);
+            
+        
+
+        marker_2d8c5f02d9d5df30d487cbd93c4ae556.bindPopup(popup_991de1852f53d42607da71eb7905157f)
+        ;
+
+        
+    
+    
+            marker_2d8c5f02d9d5df30d487cbd93c4ae556.bindTooltip(
+                `<div>
+                     Stavanger Coastal - Click for details
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_50bb1b6a2e8d01b294dcce71fbf1589f = L.marker(
+                [67.1, 12.0],
+                {
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var icon_95f8ea998a545df36376d85d702a5e5f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_50bb1b6a2e8d01b294dcce71fbf1589f.setIcon(icon_95f8ea998a545df36376d85d702a5e5f);
+        
+    
+        var popup_627a0bb541880070d49689a8bec0b321 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f0756e617c341068815150349df6e90d = $(`<div id="html_f0756e617c341068815150349df6e90d" style="width: 100.0%; height: 100.0%;">         <div style="font-size:14px;">             <strong>Røst Reef</strong><br>             <em>Species:</em> Lophelia pertusa (Deep-water coral)<br><br>             <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Lophelia_pertusa.jpg" alt="" width="250"                  onerror="this.style.display='none'"/><br><br>             <a href="https://en.wikipedia.org/wiki/Lophelia_pertusa" target="_blank">More Info</a>         </div>         </div>`)[0];
+                popup_627a0bb541880070d49689a8bec0b321.setContent(html_f0756e617c341068815150349df6e90d);
+            
+        
+
+        marker_50bb1b6a2e8d01b294dcce71fbf1589f.bindPopup(popup_627a0bb541880070d49689a8bec0b321)
+        ;
+
+        
+    
+    
+            marker_50bb1b6a2e8d01b294dcce71fbf1589f.bindTooltip(
+                `<div>
+                     Røst Reef - Click for details
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0630b2e08aace7d2f2ac7a902dc16186 = L.marker(
+                [63.435, 10.351],
+                {
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var icon_cc18d430b85e4104e027281491aa9d92 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_0630b2e08aace7d2f2ac7a902dc16186.setIcon(icon_cc18d430b85e4104e027281491aa9d92);
+        
+    
+        var popup_a743c6b212c6369955090c1708e8e4d9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1380d8fb585fff193ee3a4d7b6bfb57d = $(`<div id="html_1380d8fb585fff193ee3a4d7b6bfb57d" style="width: 100.0%; height: 100.0%;">         <div style="font-size:14px;">             <strong>Trondheim Fjord</strong><br>             <em>Species:</em> King Scallop (Pecten maximus)<br><br>             <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Pecten_maximus.jpg" alt="" width="250"                  onerror="this.style.display='none'"/><br><br>             <a href="https://en.wikipedia.org/wiki/Pecten_maximus" target="_blank">More Info</a>         </div>         </div>`)[0];
+                popup_a743c6b212c6369955090c1708e8e4d9.setContent(html_1380d8fb585fff193ee3a4d7b6bfb57d);
+            
+        
+
+        marker_0630b2e08aace7d2f2ac7a902dc16186.bindPopup(popup_a743c6b212c6369955090c1708e8e4d9)
+        ;
+
+        
+    
+    
+            marker_0630b2e08aace7d2f2ac7a902dc16186.bindTooltip(
+                `<div>
+                     Trondheim Fjord - Click for details
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bc4994940491db9057042451c4d1a9d8 = L.marker(
+                [63.99055555555556, 12.307777777777778],
+                {
+}
+            ).addTo(map_9ab77bf96ad06a9e9f11deb38eb9a56e);
+        
+    
+            var icon_df825e92b21be4dc0bb25986113a60eb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_bc4994940491db9057042451c4d1a9d8.setIcon(icon_df825e92b21be4dc0bb25986113a60eb);
+        
+    
+        var popup_275882a00ba3f657ee78824d7b637be8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7725e965fa412a1ae161080b2fd26f11 = $(`<div id="html_7725e965fa412a1ae161080b2fd26f11" style="width: 100.0%; height: 100.0%;">         <div style="font-size:14px;">             <strong>Center of Norway</strong><br>             <em>Species:</em> N/A<br><br>             <img src="https://example.com/center_image.jpg" alt="" width="250"                  onerror="this.style.display='none'"/><br><br>             <a href="https://example.com/info" target="_blank">More Info</a>         </div>         </div>`)[0];
+                popup_275882a00ba3f657ee78824d7b637be8.setContent(html_7725e965fa412a1ae161080b2fd26f11);
+            
+        
+
+        marker_bc4994940491db9057042451c4d1a9d8.bindPopup(popup_275882a00ba3f657ee78824d7b637be8)
+        ;
+
+        
+    
+    
+            marker_bc4994940491db9057042451c4d1a9d8.bindTooltip(
+                `<div>
+                     Center of Norway - Click for details
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

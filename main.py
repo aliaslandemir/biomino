@@ -1,46 +1,79 @@
 import os
-from SRC.data_handler import load_locations_from_csv
-from SRC.map_builder import (
+import logging
+from src.data_handler import load_locations_from_csv
+from src.map_builder import (
     build_base_map,
     add_clustered_markers,
+    add_markers,  # Direct marker addition for debugging
     add_geojson_layer,
-    add_search_feature
+    add_search_feature,
+    create_geojson_point,
+    geojson_feature_to_marker
 )
 
 def main():
-    # Path to your CSV
-    csv_path = os.path.join("SRC", "biomineral_data.csv")
+    # Set up logging for diagnostics.
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S"
+    )
 
-    # 1. Load data
-    locations_data = load_locations_from_csv(csv_path)
-    print(f"Loaded {len(locations_data)} location(s) from {csv_path}")
+    # Define the CSV file path.
+    csv_path = os.path.join("src", "biomineral_data.csv")
+    try:
+        locations_data = load_locations_from_csv(csv_path)
+        logging.info(f"Loaded {len(locations_data)} location(s) from {csv_path}")
+    except Exception as e:
+        logging.exception("Failed to load location data from CSV.")
+        return
 
-    # 2. Build the base map
-    # Center on Norway (60.4720, 8.4689)
+    # Optional: Add a marker from a GeoJSON feature created from DMS coordinates.
+    # Example: Center of Norway (63°59′26″N, 12°18′28″E).
+    properties = {
+        "name": "Center of Norway",
+        "species": "N/A",
+        "image_url": "https://example.com/center_image.jpg",
+        "info_link": "https://example.com/info",
+        "color": "black"
+    }
+    geojson_feature = create_geojson_point("63°59′26″N", "12°18′28″E", properties)
+    center_marker = geojson_feature_to_marker(geojson_feature)
+    locations_data.append(center_marker)
+
+    # Build the base map.
     base_map = build_base_map(
         location=(60.4720, 8.4689),
         zoom_start=5,
-        tiles="Stamen Terrain",  # e.g. "Stamen Terrain", "OpenStreetMap", etc.
+        tile_provider="openstreetmap",  # Try "google" or "stamen_terrain" if needed.
         add_measure_control=True,
         add_fullscreen_control=True
     )
 
-    # 3. Add markers
-    clustered_map = add_clustered_markers(base_map, locations_data)
-    
-    # 4. Optionally add a GeoJSON layer (uncomment if you have a .geojson file)
-    # geojson_path = os.path.join("SRC", "norway_regions.geojson")
-    # if os.path.exists(geojson_path):
-    #     add_geojson_layer(clustered_map, geojson_path)
+    # Uncomment one of the following lines:
+    # Use clustered markers:
+    # final_map = add_clustered_markers(base_map, locations_data)
+    # Or, for debugging, add markers directly (bypassing clustering):
+    final_map = add_markers(base_map, locations_data)
 
-    # 5. (Optional) Add a search feature if you have FeatureGroup or GeoJson
-    # add_search_feature(clustered_map)
+    # Optionally add a GeoJSON layer if available.
+    geojson_path = os.path.join("src", "norway_regions.geojson")
+    if os.path.exists(geojson_path):
+        final_map = add_geojson_layer(final_map, geojson_path)
+        logging.info("GeoJSON layer added.")
+    else:
+        logging.info("GeoJSON file not found; skipping GeoJSON layer.")
 
-    # 6. Save the final map to HTML
+    # Optionally, add a search feature (if implemented).
+    # add_search_feature(final_map)
+
+    # Save the final map to HTML.
     output_html = "BiomiNO_map.html"
-    clustered_map.save(output_html)
-    print(f"Map has been created and saved to: {output_html}")
-
+    try:
+        final_map.save(output_html)
+        logging.info(f"Map has been created and saved to: {output_html}")
+    except Exception as e:
+        logging.exception("Failed to save the map.")
 
 if __name__ == "__main__":
     main()

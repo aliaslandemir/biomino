@@ -1,0 +1,7 @@
+﻿name;lat;lon;species;image_url;info_link;color
+Oslo Fjord;59.919;10.752;Blue Mussel (Mytilus edulis);https://upload.wikimedia.org/wikipedia/commons/6/6a/Mytilus_edulis.JPG;https://en.wikipedia.org/wiki/Mytilus_edulis;green
+Bergen Coastal;60.399;5.324;Pacific Oyster (Crassostrea gigas);https://upload.wikimedia.org/wikipedia/commons/1/1a/Oysters_in_shell.jpg;https://en.wikipedia.org/wiki/Crassostrea_gigas;purple
+Tromsø;69.642;18.953;Acorn Barnacle (Balanus improvisus);https://upload.wikimedia.org/wikipedia/commons/6/6e/Acorn_barnacle.jpg;https://en.wikipedia.org/wiki/Barnacle;red
+Stavanger Coastal;58.969;5.731;Common Cockle (Cerastoderma edule);https://upload.wikimedia.org/wikipedia/commons/0/0b/Cerastoderma_edule.jpg;https://en.wikipedia.org/wiki/Cerastoderma_edule;brown
+Røst Reef;67.100;12.000;Lophelia pertusa (Deep-water coral);https://upload.wikimedia.org/wikipedia/commons/4/40/Lophelia_pertusa.jpg;https://en.wikipedia.org/wiki/Lophelia_pertusa;lightblue
+Trondheim Fjord;63.435;10.351;King Scallop (Pecten maximus);https://upload.wikimedia.org/wikipedia/commons/7/70/Pecten_maximus.jpg;https://en.wikipedia.org/wiki/Pecten_maximus;golden
