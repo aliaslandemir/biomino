@@ -1,0 +1,7 @@
+{
+  "name": "biomino",
+  "private": true,
+  "description": "Browser checks for the BiomiNO map; not needed to build or view it",
+  "scripts": {"test": "node test/browser.cjs"},
+  "devDependencies": {"playwright": "1.64.0"}
+}

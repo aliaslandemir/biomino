@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#163c42">
+<meta name="description" content="Explore sourced records of shell-building and calcifying marine species along Norway's coast. A small GBIF occurrence snapshot with filters and GeoJSON export.">
+<title>BiomiNO · Norway's living minerals</title>
+<style>__STYLES__</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="BiomiNO home"><span class="brand-icon" aria-hidden="true">◈</span> Biomi<span>NO</span></a>
+  <span class="topbar-caption">NORWAY'S LIVING MINERALS</span>
+  <nav aria-label="Project"><button id="about-open" class="text-button">About the data <span aria-hidden="true">↗</span></button><a class="repo-link" href="https://github.com/aliaslandemir/biomino" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+  <button id="mobile-filters" class="mobile-filters" aria-expanded="false" aria-controls="sidebar">Filters</button>
+</header>
+<div class="workspace">
+  <aside id="sidebar" class="sidebar" aria-label="Search and filter observations">
+    <div class="intro"><div class="eyebrow"><span class="status-dot"></span> A COASTAL FIELD ATLAS</div><h1>Small organisms.<br>Remarkable structures.</h1><p>Explore the species that build shells, skeletons and reefs along Norway's coast.</p>
+      <div class="stats"><div><strong id="total-records">—</strong><span>records</span></div><div><strong id="total-species">—</strong><span>species</span></div><div><strong>57–72°</strong><span>north</span></div></div>
+    </div>
+    <div class="filter-area">
+      <div class="section-heading"><h2>Explore observations</h2><button id="reset" class="reset-button">Reset</button></div>
+      <label class="search-wrap"><span class="sr-only">Search species, locality or dataset</span><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Species, place or dataset…" autocomplete="off"></label>
+      <label class="control-label" for="species">Species</label><select id="species"><option value="">All species</option></select>
+      <fieldset class="groups"><legend>Organism groups</legend><div id="group-filters"></div></fieldset>
+      <div class="filter-row"><div><label class="control-label" for="since">Recorded since</label><select id="since"><option value="">Any year</option><option value="2000">2000</option><option value="2010">2010</option><option value="2020">2020</option><option value="2025">2025</option></select></div><div><label class="control-label" for="precision">Location uncertainty</label><select id="precision"><option value="">All records</option><option value="1000">Known, ≤ 1 km</option><option value="100">Known, ≤ 100 m</option></select></div></div>
+      <div class="results-heading"><h2><span id="result-count" aria-live="polite">—</span> matching records</h2><span id="results-hint">Select to locate</span></div>
+      <div id="results" class="results-list"></div><button id="more-results" class="more-button" hidden>Show more records</button>
+    </div>
+    <div class="sidebar-footer"><span class="status-dot"></span> GBIF snapshot · <span id="snapshot-date"></span><button id="methods-open">Methods & sources</button></div>
+  </aside>
+  <main class="map-area" aria-label="Occurrence map">
+    <div id="map" aria-label="Interactive map of Norway"></div>
+    <div class="map-tools"><div class="segmented" role="group" aria-label="Map visualization"><button id="view-records" class="active" aria-pressed="true">● Records</button><button id="view-grid" aria-pressed="false">▦ Grid counts</button></div><label class="basemap-label"><span class="sr-only">Basemap</span><select id="basemap"><option value="light">Muted map</option><option value="street">Street map</option></select></label><button id="fit" class="map-action" title="Fit matching records">Fit records <span aria-hidden="true">⤢</span></button></div>
+    <div id="tile-warning" class="tile-warning" role="status" hidden>Basemap unavailable. Records still work; check your connection or try again later.</div>
+    <div class="map-heading"><span class="eyebrow">THE NORWEGIAN COAST</span><h2>A landscape built by life.</h2><p id="map-subtitle">Occurrence records, from fjord to open sea.</p></div>
+    <div class="map-bottom"><div class="legend-card"><div class="legend-title">Living mineral builders <span id="legend-mode">OBSERVATIONS</span></div><div id="legend"></div><p id="legend-note">A record marks a reported occurrence, not abundance.</p></div><div class="export-card"><span id="visible-summary">— records in view</span><div><button id="export">↓ GeoJSON</button><button id="share">Copy link</button></div></div></div>
+    <div id="toast" class="toast" role="status" hidden></div>
+  </main>
+</div>
+<dialog id="about"><div class="dialog-head"><span class="eyebrow">METHODS & SOURCES</span><button id="about-close" aria-label="Close data information">×</button></div><h2>Records, with a paper trail.</h2><p>BiomiNO maps a small snapshot of <a href="https://www.gbif.org/" target="_blank" rel="noopener noreferrer">GBIF</a> occurrence records for eight marine species with mineralized structures. It does not detect species or predict their distribution.</p><h3>How this snapshot was selected</h3><p>Norway (country code NO), 57–72° N and 2–33° E, present occurrences with coordinates and no GBIF geospatial issues. Up to 180 API results in each of five 3° latitude bands are fetched per species (900 candidates at most). The bands are interleaved, then the first eligible record in each rounded 0.2° coordinate bin is kept, capped at 150 per species. API order within each band is unspecified. This is a spatially thinned sample, not an inventory or an equal-area sample.</p><h3>Read the map carefully</h3><p>Survey effort varies by place and species. Empty areas do not imply absence. Historical records and specimens are included. Unknown dates and uncertainty remain visible unless excluded by a filter. Known coordinate uncertainty above 10 km is excluded; other GBIF quality flags are retained in each record. The grid sums the filtered snapshot in 0.5° cells; it does not measure population density.</p><h3>Attribution and reuse</h3><p>Each popup links to the original GBIF occurrence and dataset, with its recorder and license. Only CC0 and CC BY 4.0 records are included. Preserve those credits when exporting. The app code is MIT licensed; data retain their own licenses.</p><p>For coral reef research, also see the <a href="https://data.norge.no/nb/data-services/37f0a484-2ab6-3d6b-918b-5adc69d34a1f/korallrev-wfs-hi" target="_blank" rel="noopener noreferrer">Institute of Marine Research reef service</a>. That service is a further data source, not a layer in this snapshot.</p><p class="dialog-foot">Snapshot: <span id="about-date"></span> · <a href="https://techdocs.gbif.org/en/openapi/v1/occurrence" target="_blank" rel="noopener noreferrer">GBIF API documentation ↗</a></p></dialog>
+<script id="snapshot" type="application/json">__DATA__</script>
+<script>__LIBRARIES__</script>
+<script>__APP__</script>
+</body>
+</html>

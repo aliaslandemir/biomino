@@ -1,6 +1,12 @@
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
 venv/
 env/
+node_modules/
 *.log
 .DS_Store
+.env
+.env.*
+playwright-report/
+test-results/

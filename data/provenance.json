@@ -1,0 +1,269 @@
+{
+  "retrieved": "2026-10-09",
+  "source": "GBIF occurrence API",
+  "api": "https://api.gbif.org/v1",
+  "bounds": [
+    57,
+    2,
+    72,
+    33
+  ],
+  "cell_degrees": 0.2,
+  "max_per_species": 150,
+  "max_candidates_per_species": 900,
+  "latitude_bands": [
+    [
+      57,
+      60
+    ],
+    [
+      60,
+      63
+    ],
+    [
+      63,
+      66
+    ],
+    [
+      66,
+      69
+    ],
+    [
+      69,
+      72
+    ]
+  ],
+  "candidates_per_band": 180,
+  "candidate_order": "round-robin latitude bands; API order within each band",
+  "taxa": [
+    {
+      "name": "Mytilus edulis",
+      "query_name": "Mytilus edulis",
+      "common_name": "Blue mussel",
+      "group": "Bivalves",
+      "color": "#277a78",
+      "key": 8288896,
+      "matching_records": 15931,
+      "fetched": 900,
+      "inspected": 632,
+      "retained": 150,
+      "rejected_before_cap": {
+        "license": 200,
+        "uncertainty": 0,
+        "duplicate_or_cell": 282,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 8288896,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    },
+    {
+      "name": "Magallana gigas",
+      "query_name": "Magallana gigas",
+      "common_name": "Pacific oyster",
+      "group": "Bivalves",
+      "color": "#277a78",
+      "key": 7820753,
+      "matching_records": 1511,
+      "fetched": 228,
+      "inspected": 228,
+      "retained": 74,
+      "rejected_before_cap": {
+        "license": 30,
+        "uncertainty": 1,
+        "duplicate_or_cell": 123,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 7820753,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    },
+    {
+      "name": "Cerastoderma edule",
+      "query_name": "Cerastoderma edule",
+      "common_name": "Common cockle",
+      "group": "Bivalves",
+      "color": "#277a78",
+      "key": 2286583,
+      "matching_records": 1184,
+      "fetched": 729,
+      "inspected": 434,
+      "retained": 150,
+      "rejected_before_cap": {
+        "license": 143,
+        "uncertainty": 0,
+        "duplicate_or_cell": 141,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 2286583,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    },
+    {
+      "name": "Pecten maximus",
+      "query_name": "Pecten maximus",
+      "common_name": "King scallop",
+      "group": "Bivalves",
+      "color": "#277a78",
+      "key": 2285980,
+      "matching_records": 2254,
+      "fetched": 740,
+      "inspected": 740,
+      "retained": 70,
+      "rejected_before_cap": {
+        "license": 299,
+        "uncertainty": 2,
+        "duplicate_or_cell": 369,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 2285980,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    },
+    {
+      "name": "Desmophyllum pertusum",
+      "query_name": "Desmophyllum pertusum",
+      "common_name": "Cold-water coral",
+      "group": "Corals",
+      "color": "#dd765d",
+      "key": 9783587,
+      "matching_records": 10870,
+      "fetched": 900,
+      "inspected": 900,
+      "retained": 23,
+      "rejected_before_cap": {
+        "license": 0,
+        "uncertainty": 0,
+        "duplicate_or_cell": 877,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 9783587,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    },
+    {
+      "name": "Strongylocentrotus droebachiensis",
+      "query_name": "Strongylocentrotus droebachiensis",
+      "common_name": "Green sea urchin",
+      "group": "Sea urchins",
+      "color": "#8572b3",
+      "key": 2278856,
+      "matching_records": 935,
+      "fetched": 757,
+      "inspected": 575,
+      "retained": 150,
+      "rejected_before_cap": {
+        "license": 106,
+        "uncertainty": 0,
+        "duplicate_or_cell": 319,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 2278856,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    },
+    {
+      "name": "Amphibalanus improvisus",
+      "query_name": "Amphibalanus improvisus",
+      "common_name": "Bay barnacle",
+      "group": "Barnacles",
+      "color": "#c69534",
+      "key": 6467647,
+      "matching_records": 259,
+      "fetched": 186,
+      "inspected": 186,
+      "retained": 43,
+      "rejected_before_cap": {
+        "license": 2,
+        "uncertainty": 0,
+        "duplicate_or_cell": 141,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 6467647,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    },
+    {
+      "name": "Lithothamnion glaciale",
+      "query_name": "Lithothamnion glaciale",
+      "common_name": "Coralline red alga",
+      "group": "Coralline algae",
+      "color": "#ba6288",
+      "key": 2655370,
+      "matching_records": 1049,
+      "fetched": 664,
+      "inspected": 664,
+      "retained": 94,
+      "rejected_before_cap": {
+        "license": 3,
+        "uncertainty": 6,
+        "duplicate_or_cell": 561,
+        "coordinates": 0
+      },
+      "query": {
+        "taxonKey": 2655370,
+        "country": "NO",
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": "57,72",
+        "decimalLongitude": "2,33",
+        "limit": 180
+      }
+    }
+  ],
+  "record_count": 754,
+  "licenses": [
+    "http://creativecommons.org/licenses/by/4.0/",
+    "http://creativecommons.org/publicdomain/zero/1.0/"
+  ]
+}
